@@ -2,6 +2,7 @@ const API_KEY = "9b6cdeb814ae4ee0b47d539a1bb46553"
 const url = "https://newsapi.org/v2/everything?q="
 
 
+// Fetch data from the API
 async function fetchData(query){
     const res = await fetch(`${url}${query}&apiKey=${API_KEY}`)
     const data = await res.json()
@@ -10,7 +11,7 @@ async function fetchData(query){
 
 fetchData("all").then(data => renderMain(data.articles))
 
-//menu button
+// Menu button functionality
 let mobilemenu = document.querySelector(".mobile")
 let menuBtn = document.querySelector(".menuBtn")
 let menuBtnDisplay = true;
@@ -20,7 +21,7 @@ menuBtn.addEventListener("click", ()=>{
     }
 )
 
-//render news
+// Render the news articles in the main section
 function renderMain(arr){
     let mainHTML = ""
     for(let i = 0; i < arr.length; i++){
@@ -46,7 +47,7 @@ function renderMain(arr){
     document.querySelector("main").innerHTML = mainHTML
 
 }
-
+// Event listeners for search form submission
 const searchBtn = document.getElementById("searchForm")
 const searchBtnMobile = document.getElementById("searchFormMobile")
 const searchInputMobile = document.getElementById("searchInputMobile")
@@ -68,6 +69,7 @@ searchBtnMobile.addEventListener("submit", async(e)=>{
 
 })
 
+// Search function to fetch and render data for a specific query
 async function Search(query){ 
     const data = await fetchData(query)
     renderMain(data.articles)
