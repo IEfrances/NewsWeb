@@ -28,7 +28,7 @@ It utilizes the NewsAPI to fetch news data based on user queries and presents th
 
 ## Installation
 
-1. Clone the repository to your local machine using the following command: git clone https://github.com/your-username/newsnet-web-app.git
+1. Clone the repository to your local machine using the following command: git clone https://github.com/FrancesIgwe/NewsWeb.git
 2. 2. Open the index.html file in your web browser.
 
 ## Credits
