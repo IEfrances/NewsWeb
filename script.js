@@ -9,7 +9,10 @@ async function fetchData(query){
     return data
 }
 
-fetchData("all").then(data => renderMain(data.articles))
+fetchData("all").then(data => {
+    console.log(data);  // Log the data to the console
+    renderMain(data.articles);
+});
 
 // Menu button functionality
 let mobilemenu = document.querySelector(".mobile")
@@ -23,6 +26,10 @@ menuBtn.addEventListener("click", ()=>{
 
 // Render the news articles in the main section
 function renderMain(arr){
+    if (!arr) {
+        console.error("Data is undefined");
+        return;
+    }
     let mainHTML = ""
     for(let i = 0; i < arr.length; i++){
         if(arr[i].urlToImage){
